@@ -1,2 +1,14 @@
-<button (click)="getMessage()" class="btn btn-primary">Get Message</button>
-<button (click)="sendMessage()" class="btn btn-primary">Send Message</button>
+<div class="box">
+  <h2>Messenger</h2>
+  <div class="messageBox">
+    <p #response>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Type user..." aria-describedby="basic-addon2" #user>
+      <input type="text" class="form-control" placeholder="Type message..." aria-describedby="basic-addon2" #message (keyup.enter)="sendMessage(user.value, message.value)">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" (click)="sendMessage(user.value, message.value)">Send</button>
+        <button class="btn btn-outline-secondary" (click)="getMessage()">Get</button>
+      </div>
+    </div>
+  </div>
+</div>
