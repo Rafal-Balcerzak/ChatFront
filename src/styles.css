@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font: 15px arial, sans-serif;
+  background-color: #d9d9d9;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.messageBox {
+
+  font: 17px arial, sans-serif;
+  height: 60px;
+  width: 100%;
+}
+.box{
+  margin: auto;
+  min-height: 80%;
+  max-width: 550px;
+  font: 15px arial, sans-serif;
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  padding-top: 20px;
+  padding-bottom: 25px;
+  padding-right: 25px;
+  padding-left: 25px;
+  box-shadow: 5px 5px 5px grey;
+  border-radius: 15px;
+}
+.textBox{
+  width: 700px;
+}
+.messageBox date{
+  font-family: Ebrima;
+  color: dimgrey;
+  background: gainsboro;
+  font-size: xx-small;
+}
+h5.user {
+  font-weight: bold;
+}
