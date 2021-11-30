@@ -8,6 +8,8 @@ import {ChatMessage} from "../model/chat-message";
 })
 export class HttpService {
 
+  userName: string;
+
   constructor(private http: HttpClient) {
   }
 
