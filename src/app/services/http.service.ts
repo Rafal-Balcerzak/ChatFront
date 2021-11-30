@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ChatMessage} from "../model/chat-message";
 
@@ -14,6 +14,12 @@ export class HttpService {
   /*** Pobranie wiadomości ***/
   getChatMessage(): Observable<ChatMessage> {
     return this.http.get<ChatMessage>('http://localhost:8080/receiveMessage');
+  }
+
+  /*** Pobranie wiadomości po Userze ***/
+  getChatMessageByUser(user: string): Observable<ChatMessage>{
+    const param = new HttpParams().set('user', user);
+    return this.http.get<ChatMessage>('http://localhost:8080/receiveMessage',{params: param});
   }
 
   /*** Wysłanie wiadomości ***/
