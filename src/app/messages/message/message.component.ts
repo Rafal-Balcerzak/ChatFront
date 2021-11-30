@@ -19,6 +19,9 @@ export class MessageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    setInterval(() => {
+      this.getMessageByUser(this.userName);
+    }, 500);
   }
 
   getMessage() {
