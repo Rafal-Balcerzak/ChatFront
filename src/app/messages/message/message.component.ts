@@ -13,6 +13,7 @@ export class MessageComponent implements OnInit {
   messageToSend: ElementRef;
   @ViewChild("response")
   response: ElementRef;
+  userName: string = this.httpService.userName;
 
   constructor(private httpService: HttpService, private renderer: Renderer2) {
   }
@@ -28,17 +29,22 @@ export class MessageComponent implements OnInit {
     })
   }
 
-  sendMessage(user: string, message: string) {
+  getMessageByUser(user: string) {
+    this.httpService.getChatMessageByUser(user).subscribe(chatMessage => {
+      this.showMessage(chatMessage);
+    }, error => {
+      console.log("Brak wiadomości w kolejce: " + error);
+    })
+  }
+
+  sendMessage(message: string) {
     const chatMessage: ChatMessage = ({
       value: message,
-      user: user,
+      user: this.userName,
       date: new Date().toLocaleString()
     })
     this.httpService.addChatMessage(chatMessage).subscribe(() => {
       console.log("Wysłana wiadomość: " + chatMessage.value);
-      setTimeout(() =>{
-        this.getMessage();
-      },500);
     }, error => {
       console.log("Błąd wysyłania wiadomości" + error);
     });
